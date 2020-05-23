@@ -60,23 +60,27 @@
             </fa-layers>
             <span class="usa-sr-only">Close</span>
         </button>
-        <ul class="usa-nav__primary usa-accordion"><li class="usa-nav__primary-item">
-    <a class="usa-nav__link" [class.usa-current]="sectionId == 'home'" [routerLink]="[]"><span>Home</span></a>
-    </li>
-    <li class="usa-nav__primary-item">
-    <a class="usa-nav__link" [class.usa-current]="sectionId == 'search'" [routerLink]="[]"><span>Search</span></a>
-    </li><li class="usa-nav__primary-item">
-    <a class="usa-nav__link" [class.usa-current]="sectionId == 'databank'" [routerLink]="[]"><span>Databank</span></a>
-    </li><li class="usa-nav__primary-item">
-    <a class="usa-nav__link" [class.usa-current]="sectionId == 'dataservices'" [routerLink]="[]"><span>Data Services</span></a>
-    </li><li class="usa-nav__primary-item">
-    <a class="usa-nav__link" [class.usa-current]="sectionId == 'help'" [routerLink]="[]"><span>Help</span></a>
-    </li></ul>
+        <ul class="usa-nav__primary usa-accordion">
+        	<li class="usa-nav__primary-item">
+			    <a class="usa-nav__link" [class.usa-current]="sectionId == 'home'" ><span>Home</span></a>
+			</li>
+    		<li class="usa-nav__primary-item">
+    			<a class="usa-nav__link" [class.usa-current]="sectionId == 'search'" ><span>Search</span></a>
+   			</li>
+   		    <li class="usa-nav__primary-item">
+    			<a class="usa-nav__link" [class.usa-current]="sectionId == 'databank'" ><span>Databank</span></a>
+    		</li>
+    		<li class="usa-nav__primary-item">
+    			<a class="usa-nav__link" [class.usa-current]="sectionId == 'dataservices'" ><span>Data Services</span></a>
+    		</li>
+    		<li class="usa-nav__primary-item">
+    			<a class="usa-nav__link" [class.usa-current]="sectionId == 'help'" ><span>Help</span></a>
+    		</li>
+    	</ul>
     <div class="usa-nav__secondary">
   <ul class="usa-nav__secondary-links"><li *ngIf="model.signedIn" class="usa-nav__secondary-item"> 
         <a
             [attr.id]="requests"
-            [routerLink]="[]"
             [attr.class]="sectionId == 'requests' ? 'usa-current' : ''"
           >
          <fa-layers [fixedWidth]="true">
@@ -89,7 +93,6 @@
     </li><li *ngIf="model.signedIn" class="usa-nav__secondary-item"> 
         <a
             [attr.id]="messages"
-            [routerLink]="[]"
             [attr.class]="sectionId == 'messages' ? 'usa-current' : ''"
           >
          <fa-layers [fixedWidth]="true">
@@ -99,7 +102,6 @@
     </li><li *ngIf="model.signedIn" class="usa-nav__secondary-item"> 
         <a
             [attr.id]="workspace"
-            [routerLink]="[]"
             [attr.class]="sectionId == 'workspace' ? 'usa-current' : ''"
           >
          <fa-layers [fixedWidth]="true">
