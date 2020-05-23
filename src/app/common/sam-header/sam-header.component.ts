@@ -9,6 +9,8 @@ import { AppService } from '../../app-service/app.service';
 })
 export class SamHeaderComponent implements OnInit {
 
+  sectionId: string = "home";
+
   constructor(public model: AppService, public locationStrategy: LocationStrategy) { }
 
   ngOnInit() {
