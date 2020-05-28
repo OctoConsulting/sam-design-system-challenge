@@ -9,12 +9,11 @@
   <div class="grid-col-8" *ngIf="!loading; else spinner">
     <app-fh-page-controls 
       [page]="paginationModel"
-      [sortBy]="sortBy"
-      (pageChange)="onPageChange($event)">
+      (pageChange)="onPageChange($event)"
+      (sortChange)="onSortChange($event)">
     </app-fh-page-controls>
     <sds-search-result-list [model]="searchResults?.orglist">
       <ng-template #resultContent let-org>
-        <!--Pass in org here as input to card-->
         <app-fh-result-card [org]="org" (editOrg)="onEditOrg($event)"></app-fh-result-card>
       </ng-template>
     </sds-search-result-list>
