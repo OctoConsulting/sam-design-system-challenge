@@ -8,10 +8,11 @@ import { FhFiltersComponent } from './fh-landing-page/fh-filters/fh-filters.comp
 import { FhNavHeaderComponent } from './fh-landing-page/fh-nav-header/fh-nav-header.component';
 import { FhSubHeaderComponent } from './fh-landing-page/fh-sub-header/fh-sub-header.component';
 import { FhEditModalComponent } from './fh-landing-page/fh-edit-modal/fh-edit-modal.component';
-import { PaginationModule } from '@gsa-sam/components';
+import { PaginationModule, SdsSearchResultListModule, SdsSearchModule } from '@gsa-sam/components';
 import { SdsFormlyModule } from '@gsa-sam/sam-formly';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
+import { FhSearchService } from './services/fh-search.service';
 
 const routes: Routes = [
   {
@@ -37,7 +38,12 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormlyModule.forRoot(),
     SdsFormlyModule,
+    SdsSearchResultListModule,
+    SdsSearchModule,
     PaginationModule
+  ],
+  providers: [
+    FhSearchService,
   ]
 })
 export class FhModule { }

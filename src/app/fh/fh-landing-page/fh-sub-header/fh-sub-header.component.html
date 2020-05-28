@@ -1,1 +1,15 @@
-<p>fh-sub-header works!</p>
+<div class="grid-row light-gray">
+  <div class="grid-col-2">
+    <!--GO BACK ICON-->
+  </div>
+  <div class="grid-col-2">
+    <h2>FEDERAL HIERARCHY</h2>
+  </div>
+  <div class="grid-col-4 margin-top-2">
+    <sds-search [(ngModel)]="model" [searchSettings]="searchSettings" (ngModelChange)="onSearch($event)">
+    </sds-search>
+  </div>
+  <div class="grid-col-2 margin-left-auto margin-top-2" *ngIf="isSuperAdmin">
+    <button class="usa-button ">Create Department</button>
+  </div>
+</div>
