@@ -8,8 +8,8 @@ import { FHSearch } from '../interface/fh-search';
 })
 export class FhApiService {
 
-  private readonly baseUrl = '';
-  private readonly apiKey = '';
+  private readonly baseUrl = 'https://api.sam.gov/prod/federalorganizations/v1/';
+  private readonly apiKey = '5fhWziQ3OwwABsajnkzBLGjUgwwcC4cevF6crKGP';
 
   constructor(
     private httpClient: HttpClient
@@ -17,6 +17,6 @@ export class FhApiService {
 
   getOrgs(queryParams?: any): Observable<FHSearch> {
     const paramWithApiKey = {...queryParams, api_key: this.apiKey};
-    return this.httpClient.get(`${this.baseUrl}`, {params: paramWithApiKey}) as Observable<FHSearch>;
+    return this.httpClient.get(`${this.baseUrl}/orgs`, {params: paramWithApiKey}) as Observable<FHSearch>;
   }
 }
