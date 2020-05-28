@@ -12,7 +12,7 @@ Team Rocket
 
 ## Project Description
 
-Team Rocket implemented a redesign of the beta.sam.gov *Federal Hierarchy* T-2 Workspace (aka. FH landing page).
+Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2 Workspace (aka. FH landing page).
 
 ## Project Features
 
