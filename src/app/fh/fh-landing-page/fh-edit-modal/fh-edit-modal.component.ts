@@ -15,18 +15,18 @@ export class FhEditModalComponent implements OnInit {
 
   public form = new FormGroup({});
   public model: any = {
-    orgName: '',
+    fhorgname: '',
     dateRange: {
       fromtDate: '',
       toDate: '',
     },
-    L2Code: '',
+    agencyCode: '',
     L3Code: ''
   };
 
   public fields: FormlyFieldConfig[] = [
     {
-      key: 'orgName',
+      key: 'fhorgname',
       type: 'input',
       defaultValue: '',
       templateOptions: {
@@ -43,7 +43,7 @@ export class FhEditModalComponent implements OnInit {
       }
     },
     {
-      key: 'l2Code',
+      key: 'agencyCode',
       type: 'input',
       defaultValue: '',
       templateOptions: {
@@ -70,6 +70,13 @@ export class FhEditModalComponent implements OnInit {
 
   public onCancel(): void {
     this.dialogRef.close();
+  }
+
+  public onSave() {
+    if (this.form.valid) {
+      const editedOrg = {...this.data, ...this.model};
+      this.dialogRef.close(editedOrg)
+    }
   }
 
   private parseData(org: any): any {

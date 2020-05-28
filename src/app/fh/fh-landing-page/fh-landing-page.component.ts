@@ -46,10 +46,6 @@ export class FhLandingPageComponent implements OnInit {
     this.router.navigate(['fh'], {queryParams, queryParamsHandling: 'merge'});
   }
 
-  onEditOrg(org: Org) {
-    //TODO - open a model
-    console.log('Edit Org', org);
-  }
 
   onPageChange(page: PaginationModel) {
     this.paginationModel = page;
@@ -73,8 +69,8 @@ export class FhLandingPageComponent implements OnInit {
     modalRef.afterClosed().subscribe(editedData => this.onEditSave(editedData));
   }
 
-  onEditSave(data: any) {
-    // onEdit Save
+  onEditSave(data: Org) {
+    this.fhSearchService.editOrg(data);
   }
 
 }
