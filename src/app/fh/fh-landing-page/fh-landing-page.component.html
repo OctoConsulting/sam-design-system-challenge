@@ -10,8 +10,7 @@
     <app-fh-page-controls 
       [page]="paginationModel"
       [sortBy]="sortBy"
-      (pageChange)="onPageChange($event)" 
-      (sortChange)="onSortChange($event.sortBy)">
+      (pageChange)="onPageChange($event)">
     </app-fh-page-controls>
     <sds-search-result-list [model]="searchResults?.orglist">
       <ng-template #resultContent let-org>
