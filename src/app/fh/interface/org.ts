@@ -1,5 +1,5 @@
 export interface Org {
-  agencyCode: string;
+  agencycode: string;
   cgaclist: string[];
   createdBy: string;
   createdDate: Date;

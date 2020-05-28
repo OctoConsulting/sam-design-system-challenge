@@ -28,7 +28,7 @@ export class FhEditModalComponent implements OnInit {
     {
       key: 'fhorgname',
       type: 'input',
-      defaultValue: '',
+      defaultValue: this.data.fhorgname,
       templateOptions: {
         label: 'Name',
         required: true
@@ -43,9 +43,9 @@ export class FhEditModalComponent implements OnInit {
       }
     },
     {
-      key: 'agencyCode',
+      key: 'agencycode',
       type: 'input',
-      defaultValue: '',
+      defaultValue: this.data.agencycode,
       templateOptions: {
         label: 'Agency Code (L2)',
         required: true
@@ -79,10 +79,11 @@ export class FhEditModalComponent implements OnInit {
     }
   }
 
-  private parseData(org: any): any {
+  private parseData(org: Org): any {
     if (org) {
-      this.model.orgName = org['fhorgname'];
+      this.model.fhorgname = org['fhorgname'];
       this.model.dateRange.fromDate = new Date(org['createddate']);
+      this.model.agencyCode = org['agencycode'];
     }
   }
 }
