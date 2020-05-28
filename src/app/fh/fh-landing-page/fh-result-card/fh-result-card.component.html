@@ -3,7 +3,7 @@
   <!-- Item Heading -->
   <div class="grid-row grid-gap">
     <div class="grid-col">
-      <h3 class="font-sans-xs margin-bottom-neg-2px">
+      <h2 class="font-sans-xs margin-bottom-neg-2px">
         <!-- title -->
         <span class="height-4">
           <span class="float-left margin-right-1">
@@ -11,7 +11,7 @@
           <span class="sds-card__header sds-card__header--left">
             <a class="usa-link" [routerLink]="getOrgLink(org?.fhorgid)">{{ org?.fhorgname }}</a></span>
         </span>
-      </h3>
+      </h2>
     </div>
     <div>
       <sds-actions-menu
@@ -32,7 +32,7 @@
             <div [ngSwitch]="org?.fhorgtype">
               <div *ngSwitchCase="'Department/Ind. Agency'">
                 <div class="sds-field__name">CGAC:</div>
-                <div class="sds-field__value">{{org?.agencycode}}</div>
+                <div class="sds-field__value">{{org?.cgaclist[0]}}</div>
               </div>
 
               <div *ngSwitchCase="'Sub-Tier'">
@@ -80,7 +80,7 @@
       <!-- Horizontal Config -->
       <div class="grid-row grid-gap-05">
         <!-- Key/Value Wrapper -->
-        <div class="grid-col-4 tablet:grid-col-6">
+        <div class="grid-col-6 tablet:grid-col-fill">
           <div class="sds-field sds-field--stacked sds-field--small sds-field--featured">
             <div class="sds-field__name">Status</div>
             <div class="sds-field__value">
@@ -90,7 +90,7 @@
           </div>
         </div>
         <!-- Key/Value Wrapper -->
-        <div class="grid-col-4 tablet:grid-col-6">
+        <div class="grid-col-6 tablet:grid-col-fill">
           <div class="sds-field sds-field--stacked sds-field--small sds-field--featured">
             <div class="sds-field__name">Expiration Date</div>
             <div class="sds-field__value">

@@ -47,10 +47,10 @@ export class FhSearchService {
   }
 
   editOrg(org: Org) {
+    console.log(org);
     this._editedOrgs.set(org.fhorgid, org);
     if (this._searchResults) {
-      this._searchResults.orglist = this.replaceResultsWithEditedVersions(this._searchResults.orglist);
-      this._searchResults.orglist = this.sortResults(this._searchResults.orglist);
+      this._searchResults.orglist = this.formatSearchResults(this._searchResults.orglist);
       this.searchResultSubject.next({...this._searchResults}); 
     }
   }
@@ -85,7 +85,7 @@ export class FhSearchService {
         orglist = orglist.sort((orgA, orgB) => orgA.fhorgname.localeCompare(orgB.fhorgname));
         break;
       case FHSort.ORG_ID:
-        orglist = orglist.sort((orgA, orgB) => orgA.agencycode.localeCompare(orgB.agencycode));
+        orglist = orglist.sort((orgA, orgB) => orgA.fhorgid - orgB.fhorgid);
         break;
     }
 
