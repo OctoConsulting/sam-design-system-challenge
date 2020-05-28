@@ -35,23 +35,23 @@ export class FhFiltersComponent {
       }
     },
     {
-      key: 'level',
+      key: 'type',
       type: 'multicheckbox',
       templateOptions: {
-        label: 'Level', // Bug: label doesn't work. Must use description instead, which is tiny text
-        description: 'Level',
+        label: 'Org Type', // Bug: label doesn't work. Must use description instead, which is tiny text
+        description: 'Org Type',
         required: true,
         options: [
           {
-            key: 1,
+            key: 'Department/Ind. Agency',
             value: 'Department'
           },
           {
-            key: 2,
+            key: 'Sub-Tier',
             value: 'Sub-Tier'
           },
           {
-            key: 3,
+            key: 'Office',
             value: 'Office'
           }
         ]
@@ -84,21 +84,14 @@ export class FhFiltersComponent {
   ];
 
   onFilterChange(newValue) {
-    console.log('filterChange', newValue);
-    let level = [];
-    if (newValue.level) {
-      if (newValue.level[1]) {
-        level.push(1);
-      }
-      if (newValue.level[2]) {
-        level.push(2);
-      }
-      if (newValue.level[3]) {
-        level.push(3);
-      }
+    let selectedOrgTypes = [];
+    if (newValue.type) {
+      selectedOrgTypes = Object.keys(newValue.type).filter(key => newValue.type[key] && newValue.type[key] === true);
     }
+
+    console.log(newValue, selectedOrgTypes);
     const queryParams = {
-      level
+      fhorgtype: selectedOrgTypes
     };
 
     this.filterChange.emit(queryParams);

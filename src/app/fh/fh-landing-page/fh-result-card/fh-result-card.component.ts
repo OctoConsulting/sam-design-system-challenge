@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Org } from '../../interface/org';
 
 @Component({
   selector: 'app-fh-result-card',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./fh-result-card.component.scss']
 })
 export class FhResultCardComponent implements OnInit {
-  @Input() org = {};
+  @Input() org: Org;
   @Output() editOrg = new EventEmitter<any>();
 
 
