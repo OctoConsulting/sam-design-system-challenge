@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { FHSearch } from '../interface/fh-search';
 import { Subject } from 'rxjs';
 import { FhApiService } from './fh-api.service';
@@ -41,7 +41,6 @@ export class FhSearchService {
     this.fhApiService.getOrgs(queryParams).toPromise().then((response) => {
       this._searchResults = response;
       this._searchResults.orglist = this.formatSearchResults(this._searchResults.orglist);
-      this._searchResults.orglist
       this.searchResultSubject.next({...this._searchResults});
     });
   }
@@ -51,13 +50,13 @@ export class FhSearchService {
     this._editedOrgs.set(org.fhorgid, org);
     if (this._searchResults) {
       this._searchResults.orglist = this.formatSearchResults(this._searchResults.orglist);
-      this.searchResultSubject.next({...this._searchResults}); 
+      this.searchResultSubject.next({...this._searchResults});
     }
   }
 
   sort(sortBy: FHSort) {
     this.currentSortBy = sortBy;
-    let sortedSearchResults = {...this._searchResults, orglist: this.sortResults(this._searchResults.orglist)};
+    const sortedSearchResults = {...this._searchResults, orglist: this.sortResults(this._searchResults.orglist)};
     this.searchResultSubject.next(sortedSearchResults);
   }
 
@@ -69,18 +68,17 @@ export class FhSearchService {
   }
 
   private replaceResultsWithEditedVersions(orglist: Org[]) {
-    const replacedOrglist = orglist.map(result => 
-      this._editedOrgs.has(result.fhorgid) ? this._editedOrgs.get(result.fhorgid) : result);
+    const replacedOrglist = orglist.map(result => this._editedOrgs.has(result.fhorgid) ? this._editedOrgs.get(result.fhorgid) : result);
     return replacedOrglist;
   }
 
   /**
    * Public API does not support sorting, hence we do client side sorting on
    * whatever fraction of total results we get.
-   * @param orglist 
+   * @param orglist
    */
   private sortResults(orglist: Org[]) {
-    switch(this.currentSortBy) {
+    switch (this.currentSortBy) {
       case FHSort.NAME:
         orglist = orglist.sort((orgA, orgB) => orgA.fhorgname.localeCompare(orgB.fhorgname));
         break;
