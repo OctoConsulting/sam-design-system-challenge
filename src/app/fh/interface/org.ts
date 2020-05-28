@@ -1,6 +1,6 @@
 export interface Org {
   agencycode: string;
-  cgaclist: string[];
+  cgaclist: any[];
   createdBy: string;
   createdDate: Date;
   fhagencyorgname: string;

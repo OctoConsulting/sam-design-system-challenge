@@ -87,7 +87,6 @@ export class FhEditModalComponent implements OnInit {
 
   public onSave() {
     if (this.form.valid) {
-      console.log(this.model);
       const formattedModel = {
         ...this.model,
         effectivestartdate: this.model.dateRange.fromDate,
