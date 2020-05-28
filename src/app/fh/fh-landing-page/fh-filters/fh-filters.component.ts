@@ -37,9 +37,9 @@ export class FhFiltersComponent {
     {
       key: 'type',
       type: 'multicheckbox',
+      wrappers: ['accordionwrapper'],
       templateOptions: {
         label: 'Org Type', // Bug: label doesn't work. Must use description instead, which is tiny text
-        description: 'Org Type',
         required: true,
         options: [
           {
