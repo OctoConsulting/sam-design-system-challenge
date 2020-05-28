@@ -1,8 +1,17 @@
 <div class="grid-row sds-navbar border-bottom border-base-lighter">
-  <div class="grid-col-2">
-    <!--GO BACK ICON-->
+  <div class="grid-col-1">
+    <!-- Black space-->
   </div>
-  <div class="grid-col-2">
+  <div class="grid-col-1" >
+    <div class="button-label margin-left-auto" [routerLink]="'/fh'">
+      <button id="back-button" class="sds-button--circle usa-button--secondary" tabindex="-1" aria-label="back">
+        <fa-icon [icon]="['fas', 'chevron-left']" [fixedWidth]="true"></fa-icon>
+      </button>
+      <label style="width: 4rem;" aria-hidden="true">Back</label>
+    </div>
+  </div>
+  
+  <div class="grid-col-2 grid-row">
     <h2>FEDERAL HIERARCHY</h2>
   </div>
   <div class="grid-col-4 margin-top-2">
