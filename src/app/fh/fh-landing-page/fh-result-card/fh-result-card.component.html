@@ -3,7 +3,7 @@
   <!-- Item Heading -->
   <div class="grid-row grid-gap">
     <div class="grid-col">
-      <h3 class="font-sans-xs margin-y-0">
+      <h3 class="font-sans-xs margin-bottom-neg-2px">
         <!-- title -->
         <span class="height-4">
           <span class="float-left margin-right-1">
@@ -15,6 +15,7 @@
     </div>
     <div>
       <sds-actions-menu
+      class="margin-bottom-neg-2px"
       size="sm" [model]="actionMenuModel" (clicks)="onActionMenuClick(org)"></sds-actions-menu>
     </div>
   </div>
@@ -25,10 +26,6 @@
     <div class="grid-col-12 tablet:grid-col-6">
       <!-- DUNS -->
       <div class="grid-row margin-y-1">
-        <!-- Tag -->
-        <div class="grid-col-auto">
-          <div class="usa-tag sds-tag--info-purple sds-static--tag flex-justify-center">ID</div>
-        </div>
         <!-- Key/Value Wrapper -->
         <div class="grid-col">
           <div class="sds-field sds-field--small">
@@ -40,15 +37,6 @@
       
       <!-- TYPE -->
       <div class="grid-row margin-y-1">
-        <!-- Tag -->
-        <div class="grid-col-auto">
-          <div class="grid-row margin-y-1">
-            <div class="grid-col-auto">
-              <div class="sds-static--tag display-none"></div>
-            </div>
-          </div>
-        </div>
-
         <!-- Key/Value Wrapper -->
         <div class="grid-col">
           <div class="sds-field sds-field--small">
@@ -60,15 +48,6 @@
 
       <!-- DATE -->
       <div class="grid-row margin-y-1">
-        <!-- Tag -->
-        <div class="grid-col-auto">
-          <div class="grid-row margin-y-1">
-            <div class="grid-col-auto">
-              <div class="sds-static--tag display-none"></div>
-            </div>
-          </div>
-        </div>
-
         <!-- Key/Value Wrapper -->
         <div class="grid-col">
           <div class="sds-field sds-field--small">
