@@ -29,8 +29,23 @@
         <!-- Key/Value Wrapper -->
         <div class="grid-col">
           <div class="sds-field sds-field--small">
-            <div class="sds-field__name">Organization ID:</div>
-            <div class="sds-field__value">{{org?.agencycode}}</div>
+            <div [ngSwitch]="org?.fhorgtype">
+              <div *ngSwitchCase="'Department/Ind. Agency'">
+                <div class="sds-field__name">CGAC:</div>
+                <div class="sds-field__value">{{org?.agencycode}}</div>
+              </div>
+
+              <div *ngSwitchCase="'Sub-Tier'">
+                <div class="sds-field__name">Agency Code:</div>
+                <div class="sds-field__value">{{org?.agencycode}}</div>
+              </div>
+
+              <div *ngSwitchCase="'OFFICE'">
+                <div class="sds-field__name">AAC:</div>
+                <div class="sds-field__value">{{org?.aacofficecode}}</div>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>

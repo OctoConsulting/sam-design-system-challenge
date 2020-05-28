@@ -16,4 +16,5 @@ export interface Org {
   updatedby: string;
   fhorgname: string;
   effectivestartdate: string;
+  aacofficecode?: string;
 }
