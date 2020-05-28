@@ -49,7 +49,7 @@ const routes: Routes = [
     SdsFiltersModule,
     SdsActionsMenuModule,
     SdsDialogModule,
-    FontAwesomeModule,
+    FontAwesomeModule
   ],
   entryComponents: [
     FhEditModalComponent

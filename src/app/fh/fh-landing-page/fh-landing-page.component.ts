@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 import { FHSearch } from '../interface/fh-search';
 import { FhSearchService } from '../services/fh-search.service';
 import { PaginationModel } from '@gsa-sam/components/lib/pagination/model/paginationModel';
-import { tap } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Org } from '../interface/org';
 import { SdsDialogService } from '@gsa-sam/components';
 import { FhEditModalComponent } from './fh-edit-modal/fh-edit-modal.component';
 import { FHSort } from '../interface/fh-sort';
@@ -15,14 +14,17 @@ import { FHSort } from '../interface/fh-sort';
   templateUrl: './fh-landing-page.component.html',
   styleUrls: ['./fh-landing-page.component.scss']
 })
-export class FhLandingPageComponent implements OnInit {
-
-  searchResults$: Observable<FHSearch>;
+export class FhLandingPageComponent implements OnInit, OnDestroy {
+  public loading = true;
+  searchResults: FHSearch;
   paginationModel: PaginationModel = {
     pageNumber: 1,
     pageSize: 25,
     totalPages: undefined
   };
+  sortBy: FHSort;
+
+  private unsub$ = new Subject();
 
   constructor(
     public modal: SdsDialogService,
@@ -32,15 +34,27 @@ export class FhLandingPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.searchResults$ = this.fhSearchService.get().pipe(
-      tap((response: {totalrecords: number, orglist: any[]}) => {
-        this.paginationModel.totalPages = Math.ceil(response.totalrecords / this.paginationModel.pageSize);
-      })
+    this.fhSearchService.get()
+    .pipe(takeUntil(this.unsub$))
+    .subscribe(
+      results => {
+        this.loading = false;
+        this.paginationModel.totalPages = Math.ceil(results.totalrecords / this.paginationModel.pageSize);
+        this.searchResults = results;
+      }
     );
 
-    this.activatedRoute.queryParams.subscribe((params) => {
+    this.activatedRoute.queryParams
+    .pipe(takeUntil(this.unsub$))
+    .subscribe((params) => {
+      this.loading = true;
       this.fhSearchService.search(params);
     });
+  }
+
+  ngOnDestroy() {
+    this.unsub$.next();
+    this.unsub$.complete();
   }
 
   search(queryParams?: any) {
@@ -66,10 +80,14 @@ export class FhLandingPageComponent implements OnInit {
       width: 'medium',
       data: org
     });
-    modalRef.afterClosed().subscribe(editedData => this.fhSearchService.editOrg(editedData));
+
+    modalRef.afterClosed()
+    .pipe(takeUntil(this.unsub$))
+    .subscribe(editedData => this.fhSearchService.editOrg(editedData));
   }
 
   onSortChange($event: FHSort) {
+    this.sortBy = $event;
     this.fhSearchService.sort($event);
   }
 }
