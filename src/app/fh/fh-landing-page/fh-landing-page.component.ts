@@ -42,10 +42,10 @@ export class FhLandingPageComponent implements OnInit {
     });
   }
 
-  search(queryParams?: any) {  
+  search(queryParams?: any) {
+    queryParams['status'] = 'INACTIVE';
     this.router.navigate(['fh'], {queryParams, queryParamsHandling: 'merge'});
   }
-
 
   onPageChange(page: PaginationModel) {
     this.paginationModel = page;
