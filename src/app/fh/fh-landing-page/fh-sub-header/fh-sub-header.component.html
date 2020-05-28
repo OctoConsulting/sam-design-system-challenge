@@ -8,14 +8,14 @@
         </button>
         <h1 class="font-heading-md text-semibold tablet-lg:width-mobile">Federal Hierarchy</h1>
       </div>
-    
+
       <div class="grid-col-12 tablet-lg:grid-col-fill display-flex">
         <div class="tablet-lg:order-1" *ngIf="isSuperAdmin">
           <button class="usa-button ">Create Department</button>
         </div>
         <div class="flex-fill">
           <div class="margin-x-105 margin-top-05 tablet:margin-top-0">
-            <sds-search [(ngModel)]="model" [searchSettings]="searchSettings" (ngModelChange)="onSearch($event)">
+            <sds-search disableSuggestions [(ngModel)]="model" [searchSettings]="searchSettings" (ngModelChange)="onSearch($event)">
             </sds-search>
           </div>
         </div>
