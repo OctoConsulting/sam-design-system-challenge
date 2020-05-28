@@ -15,4 +15,5 @@ export interface Org {
   status: string;
   updatedby: string;
   fhorgname: string;
+  effectivestartdate: string;
 }
