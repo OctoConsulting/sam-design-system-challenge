@@ -39,14 +39,14 @@ export class FhSearchService {
       this._searchResults = response;
       this._searchResults.orglist = this.replaceResultsWithEditedVersions(this._searchResults.orglist);
       this.searchResultSubject.next({...this._searchResults});
-    })
+    });
   }
 
   editOrg(org: Org) {
     this._editedOrgs.set(org.fhorgid, org);
     if (this._searchResults) {
       this._searchResults.orglist = this.replaceResultsWithEditedVersions(this._searchResults.orglist);
-      this.searchResultSubject.next({...this._searchResults}); 
+      this.searchResultSubject.next({...this._searchResults});
     }
   }
 
