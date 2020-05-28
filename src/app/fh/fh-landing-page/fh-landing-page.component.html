@@ -4,14 +4,14 @@
     <div class="margin-bottom-4">
       <app-fh-nav-header></app-fh-nav-header>
     </div>
-    <app-fh-filters></app-fh-filters>
+    <app-fh-filters (filterChange)="onFilterChange($event)"></app-fh-filters>
   </div>
   <div class="grid-col-8" *ngIf="(searchResults$ | async) as searchResults">
     <app-fh-page-controls [page]="paginationModel" (pageChange)="onPageChange($event)"></app-fh-page-controls>
     <sds-search-result-list [model]="searchResults.orglist">
       <ng-template #resultContent let-org>
         <!--Pass in org here as input to card-->
-        <app-fh-result-card [org]="org"></app-fh-result-card>
+        <app-fh-result-card [org]="org" (editOrg)="onEditOrg($event)"></app-fh-result-card>
       </ng-template>
     </sds-search-result-list>
   </div>

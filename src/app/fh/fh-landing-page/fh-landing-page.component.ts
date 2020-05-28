@@ -4,6 +4,8 @@ import { FHSearch } from '../interface/fh-search';
 import { FhSearchService } from '../services/fh-search.service';
 import { PaginationModel } from '@gsa-sam/components/lib/pagination/model/paginationModel';
 import { tap } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Org } from '../interface/org';
 import { SdsDialogService } from '@gsa-sam/components';
 import { FhEditModalComponent } from './fh-edit-modal/fh-edit-modal.component';
 
@@ -23,7 +25,9 @@ export class FhLandingPageComponent implements OnInit {
 
   constructor(
     public modal: SdsDialogService,
-    private fhSearchService: FhSearchService
+    private fhSearchService: FhSearchService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -32,14 +36,33 @@ export class FhLandingPageComponent implements OnInit {
         this.paginationModel.totalPages = Math.ceil(response.totalrecords / this.paginationModel.pageSize);
       })
     );
+
+    this.activatedRoute.queryParams.subscribe((params) => {
+      this.fhSearchService.search(params);
+    });
   }
 
-  search(queryParams?: any) {
-    this.fhSearchService.search(queryParams);
+  search(queryParams?: any) {  
+    this.router.navigate(['fh'], {queryParams, queryParamsHandling: 'merge'});
   }
 
-  onPageChange($event) {
-    // todo - Change page
+  onEditOrg(org: Org) {
+    //TODO - open a model
+    console.log('Edit Org', org);
+  }
+
+  onPageChange(page: PaginationModel) {
+    this.paginationModel = page;
+    const queryParams = {
+      limit: page.pageSize,
+      offset: (page.pageNumber - 1) * page.pageSize
+    };
+
+    this.search(queryParams);
+  }
+
+  onFilterChange(queryParams: any) {
+    this.search(queryParams);
   }
 
   onEditOrg(org: any) {
