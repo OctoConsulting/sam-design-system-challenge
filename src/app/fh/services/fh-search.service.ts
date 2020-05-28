@@ -52,5 +52,5 @@ export class FhSearchService {
       this._editedOrgs.has(result.fhorgid) ? this._editedOrgs.get(result.fhorgid) : result);
     return replacedOrglist;
   }
-
 }
+

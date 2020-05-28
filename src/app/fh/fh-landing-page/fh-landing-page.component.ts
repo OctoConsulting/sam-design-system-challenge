@@ -6,6 +6,8 @@ import { PaginationModel } from '@gsa-sam/components/lib/pagination/model/pagina
 import { tap } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Org } from '../interface/org';
+import { SdsDialogService } from '@gsa-sam/components';
+import { FhEditModalComponent } from './fh-edit-modal/fh-edit-modal.component';
 
 @Component({
   selector: 'app-fh-landing-page',
@@ -22,6 +24,7 @@ export class FhLandingPageComponent implements OnInit {
   };
 
   constructor(
+    public modal: SdsDialogService,
     private fhSearchService: FhSearchService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -60,6 +63,18 @@ export class FhLandingPageComponent implements OnInit {
 
   onFilterChange(queryParams: any) {
     this.search(queryParams);
+  }
+
+  onEditOrg(org: any) {
+    const modalRef = this.modal.open(FhEditModalComponent, {
+      width: 'medium',
+      data: org
+    });
+    modalRef.afterClosed().subscribe(editedData => this.onEditSave(editedData));
+  }
+
+  onEditSave(data: any) {
+    // onEdit Save
   }
 
 }
