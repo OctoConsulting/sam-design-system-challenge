@@ -43,7 +43,6 @@ export class FhLandingPageComponent implements OnInit {
   }
 
   search(queryParams?: any) {
-    queryParams['status'] = 'INACTIVE';
     this.router.navigate(['fh'], {queryParams, queryParamsHandling: 'merge'});
   }
 
