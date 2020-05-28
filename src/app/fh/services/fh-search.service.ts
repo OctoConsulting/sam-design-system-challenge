@@ -38,7 +38,7 @@ export class FhSearchService {
 
   search(queryParams?: any) {
     this.currentSearchParams = this.currentSearchParams ? {...this.currentSearchParams, ...queryParams} : queryParams;
-    this.fhApiService.getOrgs(queryParams).toPromise().then((response) => {
+    this.fhApiService.getOrgs(this.currentSearchParams).toPromise().then((response) => {
       this._searchResults = response;
       this._searchResults.orglist = this.formatSearchResults(this._searchResults.orglist);
       this.searchResultSubject.next({...this._searchResults});
