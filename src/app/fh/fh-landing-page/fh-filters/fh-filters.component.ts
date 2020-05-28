@@ -41,7 +41,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
   onFilterChange(newValue) {
     let queryParams = {};
     if (newValue.type) {
-      queryParams['fhorgtype'] = Object.keys(newValue.type).filter(key => newValue.type[key] && newValue.type[key] === true).join(',');
+      queryParams['fhorgtype'] = newValue.type
     }
 
     if (newValue.createdAfter) {
@@ -54,8 +54,8 @@ export class FhFiltersComponent implements OnInit, OnChanges {
 
     queryParams = {
       ...queryParams,
-      agencycode: queryParams['fhorgtype'] && queryParams['fhorgtype'].indexOf('Sub-Tier') > -1 ? newValue.agencyCode : undefined,
-      aacofficecode: queryParams['fhorgtype'] && queryParams['fhorgtype'].indexOf('Office') > -1 ? newValue.aacCode : undefined,
+      agencycode:  newValue.type === 'Sub-Tier' ? newValue.agencyCode : undefined,
+      aacofficecode: newValue.type === 'Office' ? newValue.aacCode : undefined,
     };
 
     this.filterChange.emit(queryParams);
@@ -85,13 +85,9 @@ export class FhFiltersComponent implements OnInit, OnChanges {
       },
       {
         key: 'type',
-        type: 'multicheckbox',
+        type: 'radio',
         wrappers: ['accordionwrapper'],
-        defaultValue: {
-          'Department/Ind. Agency': routeParams['fhorgtype'] && routeParams['fhorgtype'].indexOf('Department/Ind. Agency') > -1 ? true : false,
-          'Sub-Tier': routeParams['fhorgtype'] && routeParams['fhorgtype'].indexOf('Sub-Tier') > -1 ? true : false,
-          'Office': routeParams['fhorgtype'] && routeParams['fhorgtype'].indexOf('Office') > -1 ? true : false,
-        },
+        defaultValue: routeParams['fhorgtype'] ? routeParams['fhorgtype'] : undefined,
         templateOptions: {
           label: 'Org Type', // Bug: label doesn't work. Must use description instead, which is tiny text
           options: [
@@ -119,7 +115,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
           label: 'Agency Code',
         },
         hideExpression: (model, formState) => {
-          const show = model && model.type && model.type['Sub-Tier'];
+          const show = model && model.type && model.type === 'Sub-Tier';
           return !show;
         },
       },
@@ -132,7 +128,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
           label: 'AAC Code',
         },
         hideExpression: (model, formState) => {
-          const show = model && model.type && model.type['Office'];
+          const show = model && model.type && model.type === 'Office';
           return !show;
         },
       },
