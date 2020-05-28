@@ -68,6 +68,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
         type: 'input',
         defaultValue: routeParams['fhorgname'] ? routeParams['fhorgname'] : undefined,
         templateOptions: {
+          hideOptional: true,
           label: 'Keyword',
         }
       },
@@ -76,9 +77,10 @@ export class FhFiltersComponent implements OnInit, OnChanges {
         type: 'datepicker',
         defaultValue: routeParams['createddatefrom'] ? new Date(routeParams['createddatefrom']) : undefined,
         templateOptions: {
+          hideOptional: true,
           label: 'Created After',
-          minDate: new Date(2019, 12, 31),
-          maxDate: new Date(2030, 1, 1)
+          minDate: new Date(1940, 12, 31),
+          maxDate: new Date()
         }
       },
       {
@@ -113,6 +115,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
         type: 'input',
         defaultValue: routeParams['agencycode']? routeParams['agencycode'] : undefined,
         templateOptions: {
+          hideOptional: true,
           label: 'Agency Code',
         },
         hideExpression: (model, formState) => {
@@ -125,6 +128,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
         type: 'input',
         defaultValue: routeParams['aacofficecode']? routeParams['aacofficecode'] : undefined,
         templateOptions: {
+          hideOptional: true,
           label: 'AAC Code',
         },
         hideExpression: (model, formState) => {
