@@ -8,6 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Org } from '../interface/org';
 import { SdsDialogService } from '@gsa-sam/components';
 import { FhEditModalComponent } from './fh-edit-modal/fh-edit-modal.component';
+import { FHSort } from '../interface/fh-sort';
 
 @Component({
   selector: 'app-fh-landing-page',
@@ -65,11 +66,10 @@ export class FhLandingPageComponent implements OnInit {
       width: 'medium',
       data: org
     });
-    modalRef.afterClosed().subscribe(editedData => this.onEditSave(editedData));
+    modalRef.afterClosed().subscribe(editedData => this.fhSearchService.editOrg(editedData));
   }
 
-  onEditSave(data: Org) {
-    this.fhSearchService.editOrg(data);
+  onSortChange($event: FHSort) {
+    this.fhSearchService.sort($event);
   }
-
 }
