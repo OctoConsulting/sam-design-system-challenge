@@ -6,9 +6,9 @@ Team Rocket
 
 ## Members
 
-*Bibek Regmi
-*Andrew Tran
-*Justin Babbs
+* Bibek Regmi
+* Andrew Tran
+* Justin Babbs
 
 ## Project Description
 
@@ -16,14 +16,17 @@ Team Rocket implemented a redesign of the beta.sam.gov Federal Hierarchy landing
 
 ## Project Features
 
-*A filter toolbar on the left side of the page
-    * Toolbar uses conditional filtering to show/hide filters which aren't applicable. The AAC Code is only visible if
-    * Filters are added to the browser history so that users can user the forward and back buttons of the browser to move back and forward between pages
-    * Filters and pagination can be deep linked and bookmarked (/fh?offset=3&fhorgname=Parks)
-*Pagination and sorting using SDS pagination component
-*A subheader with keyword search
-    * Users can search based on keyword
-    * The browser history stores the search term, so users can user the back and forward buttons of the browsers to return to previous search results.
+* A filter toolbar on the left side of the page
+  * Toolbar uses conditional filtering to show/hide filters which aren't applicable. The AAC Code is only visible if
+  * Filters are added to the browser history so that users can user the forward and back buttons of the browser to move back and forward between pages
+  * Filters and pagination can be deep linked and bookmarked (/fh?offset=3&fhorgname=Parks)
+
+* Pagination and sorting using SDS pagination component
+
+* A subheader with keyword search
+  * Users can search based on keyword
+  * The browser history stores the search term, so users can user the back and forward buttons of the browsers to return to previous search results.
+
 *A modal window to allow users to edit organization details.
 
 ## Screenshots
