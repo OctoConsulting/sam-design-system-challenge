@@ -44,16 +44,24 @@ export class FhEditModalComponent implements OnInit {
     {
       key: 'agencycode',
       type: 'input',
+      hideExpression: () => {
+        const show = this.data && this.data.fhorgtype.toLowerCase() === 'sub-tier';
+        return !show;
+      },
       templateOptions: {
-        label: 'Agency Code (L2)',
+        label: 'Agency Code',
         required: true
       }
     },
     {
       key: 'l3Code',
       type: 'input',
+      hideExpression: () => {
+        const show = this.data && this.data.fhorgtype.toLowerCase() === 'office';
+        return !show;
+      },
       templateOptions: {
-        label: 'Office Code (L3)',
+        label: 'Office AAC Code',
         required: true
       }
     }
