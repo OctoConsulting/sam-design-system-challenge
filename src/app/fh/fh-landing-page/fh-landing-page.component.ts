@@ -23,7 +23,7 @@ export class FhLandingPageComponent implements OnInit, OnDestroy {
     totalPages: undefined
   };
   sortBy: FHSort;
-
+  
   private unsub$ = new Subject();
 
   constructor(
