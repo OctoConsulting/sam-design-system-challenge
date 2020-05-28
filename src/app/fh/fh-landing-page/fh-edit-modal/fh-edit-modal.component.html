@@ -1,1 +1,10 @@
-<p>fh-edit-modal works!</p>
+<div sds-dialog-title class="dialog-title"> Edit {{data?.fhorgtype}}</div>
+<div sds-dialog-content>
+  <form [formGroup]="form">
+    <formly-form [model]="model" [form]="form" [fields]="fields"></formly-form>
+  </form>
+</div>
+<div sds-dialog-actions>
+  <button class="usa-button usa-button--base" (click)="onCancel()">Cancel</button>
+  <button class="usa-button" [sds-dialog-close]="model">Save</button>
+</div>
