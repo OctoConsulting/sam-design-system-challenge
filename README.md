@@ -29,11 +29,15 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 
 * A modal window to allow users to edit organization details.
 
+* This prototype uses live data from ![public Federal Hierarchy API)(https://open.gsa.gov/api/fh-fouo-api/)
+
+![Open GSA API](imgs/open_gsa.PNG)
+
 ## Screenshots
 
 ### New Landing Page
 
-![redesigned landing page](imgs/redesigned_landing_page.png) 
+![redesigned landing page](imgs/redesigned_landing_page.png)
 
 ### New Organization Edit Modal
 
@@ -51,7 +55,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
  
 ![existing landing page](imgs/edit_modal_mockup.png) 
  
- We integrated several components Sam Design System library, and integrated several presentation components from ![SAM Styles)[https://federalist-0ad5a602-ca98-4a7e-8d6e-d9ece7bc4cf8.app.cloud.gov/site/gsa/sam-styles/index.html).
+ We integrated several components Sam Design System library, and integrated several presentation components from [SAM Styles](https://federalist-0ad5a602-ca98-4a7e-8d6e-d9ece7bc4cf8.app.cloud.gov/site/gsa/sam-styles/index.html).
 
 ## Issues Encountered
 
@@ -63,6 +67,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
   * The prototype is using public FOUO API, and it does not support specifying the number of results, so this feature is not working.
 * An output event on 'Reset All' clicked for `<sds-filter>` would be helpful as clients might want different behavior on that click.
 * The current `<sds-search>` throws JS error when attempting to search with empty search text
+* The **formly daterange picker** has options to set a min-max range from the component as a whole, but no options to set more specific range for the inner fromDate and toDate fields. Our use case requires the toDate to only allow dates from tomorrow and later, and we could not implement that with the current functionality.
 
 ### Major Bugs / Difficulties
 
@@ -71,3 +76,11 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 By far, our biggest challenge was adding the filtering and pagination options to the browser history using url query params. We tried to take advantage of the history feature of the `<sds-filter>` component, but encountered several issues. We found that we could not set URL query parameters outside of the component. Doing so would break the history feature of the `<sds-filter>`.
 
 As a possible solution, we propose that the history feature should be decoupled from the `<sds-filter>`. We needed a service to coordinate filter across the entire page -- not just within one `<sds-filter>` component.
+
+## Innovation
+
+### Disabling Browser Suggestions for input
+
+We created a directive (in the common folder), which will disable the browser suggestions for inputs. These suggestions can obscure our custom autocomplete suggestions and are enabled by default. The screenshot below demonstrates how the browser suggestions overlay autocomplete suggestions.
+
+![disable suggestions](imgs/disable_suggestions.png)
