@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-fh-nav-header',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FhNavHeaderComponent implements OnInit {
 
+  @Input() userOrg: any;
+
+  @Output() editClicked = new EventEmitter<any>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onEdit() {
+    this.editClicked.emit(this.userOrg);
   }
 
 }
