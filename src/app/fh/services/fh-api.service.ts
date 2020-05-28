@@ -9,7 +9,7 @@ import { FHSearch } from '../interface/fh-search';
 export class FhApiService {
 
   private readonly baseUrl = 'https://api.sam.gov/prod/federalorganizations/v1/';
-  private readonly apiKey = 'zAdl8SNdzc1Y06aCX6JN1nXIqT060ejvG0LJbDKK';
+  private readonly apiKey = '5fhWziQ3OwwABsajnkzBLGjUgwwcC4cevF6crKGP';
 
   constructor(
     private httpClient: HttpClient

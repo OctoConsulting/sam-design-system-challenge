@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { FHSort } from '../../interface/fh-sort';
 
 @Component({
   selector: 'app-fh-page-controls',
@@ -18,7 +19,7 @@ export class FhPageControlsComponent implements OnInit {
 
   @Output() pageChange = new EventEmitter<any>();
 
-  @Output() sortChange = new EventEmitter<any>();
+  @Output() sortChange = new EventEmitter<FHSort>();
 
   public top = { id: 'top' };
 
@@ -27,13 +28,13 @@ export class FhPageControlsComponent implements OnInit {
     {
       key: 'sortBy',
       type: 'select',
-      defaultValue: 'name',
+      defaultValue: FHSort.NAME,
       templateOptions: {
         label: 'Sort By',
         required: true,
         options: [
-          { label: 'Name', value: 'name' },
-          { label: 'Organization ID', value: 'orgid' }
+          { label: 'Name', value: FHSort.NAME },
+          { label: 'Organization ID', value: FHSort.ORG_ID}
         ]
       }
     }
