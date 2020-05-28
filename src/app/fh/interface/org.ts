@@ -14,4 +14,5 @@ export interface Org {
   lastupdateddate: Date;
   status: string;
   updatedby: string;
+  fhorgname: string;
 }
