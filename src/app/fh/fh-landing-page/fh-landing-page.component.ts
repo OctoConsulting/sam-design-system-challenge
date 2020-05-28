@@ -42,13 +42,9 @@ export class FhLandingPageComponent implements OnInit {
     });
   }
 
-  search(queryParams?: any) {  
+  search(queryParams?: any) {
+    queryParams['status'] = 'INACTIVE';
     this.router.navigate(['fh'], {queryParams, queryParamsHandling: 'merge'});
-  }
-
-  onEditOrg(org: Org) {
-    //TODO - open a model
-    console.log('Edit Org', org);
   }
 
   onPageChange(page: PaginationModel) {
