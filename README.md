@@ -12,7 +12,7 @@ Team Rocket
 
 ## Project Description
 
-Team Rocket implemented a redesign of the beta.sam.gov Federal Hierarchy landing page.
+Team Rocket implemented a redesign of the beta.sam.gov *Federal Hierarchy* T-2 Workspace (aka. FH landing page).
 
 ## Project Features
 
@@ -27,7 +27,7 @@ Team Rocket implemented a redesign of the beta.sam.gov Federal Hierarchy landing
   * Users can search based on keyword
   * The browser history stores the search term, so users can user the back and forward buttons of the browsers to return to previous search results.
 
-*A modal window to allow users to edit organization details.
+* A modal window to allow users to edit organization details.
 
 ## Screenshots
 
@@ -47,12 +47,13 @@ Team Rocket implemented a redesign of the beta.sam.gov Federal Hierarchy landing
 
 ## Issues Encountered
 
-### Minor Bugs
+### Minor Bugs and Limitations
 
 * The Formly multiselect 'templateOptions.label' isn't implemented. We had to use an accordion wrapper instead.
 * The `<sds-filter>` Reset All button doesn't always clear all the inputs. It should empty all text inputs, and uncheck any checked items -- not reset them to the state they were in when the page loaded.
 * The pagination component cannot be set to page size 10. It can only be set to page sizes of 25/50/100.
-* An output event on 'Reset All' clicked for `<sds-filter>` would be helpful as clients might want different behavior on that click
+  * The prototype is using public FOUO API, and it does not support specifying the number of results, so this feature is not working.
+* An output event on 'Reset All' clicked for `<sds-filter>` would be helpful as clients might want different behavior on that click.
 * The current `<sds-search>` throws JS error when attempting to search with empty search text
 
 ### Major Bugs / Difficulties
