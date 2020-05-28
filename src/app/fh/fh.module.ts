@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { SdsActionsMenuModule } from '@gsa-sam/layouts';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DisableSuggestionsDirective } from '../common/directives/disable-suggestions.directive';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
     FhNavHeaderComponent,
     FhSubHeaderComponent,
     FhEditModalComponent,
+    DisableSuggestionsDirective,
   ],
   imports: [
     CommonModule,
