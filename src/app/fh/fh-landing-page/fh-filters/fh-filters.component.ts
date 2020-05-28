@@ -56,6 +56,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
       ...queryParams,
       agencycode:  newValue.type === 'Sub-Tier' ? newValue.agencyCode : undefined,
       aacofficecode: newValue.type === 'Office' ? newValue.aacCode : undefined,
+      status: newValue.status
     };
 
     this.filterChange.emit(queryParams);
@@ -81,6 +82,25 @@ export class FhFiltersComponent implements OnInit, OnChanges {
           label: 'Created After',
           minDate: new Date(1940, 12, 31),
           maxDate: new Date()
+        }
+      },
+      {
+        key: 'status',
+        type: 'radio',
+        wrappers: ['accordionwrapper'],
+        defaultValue: routeParams['status'] ? routeParams['status'] : 'Active',
+        templateOptions: {
+          label: 'Status', // Bug: label doesn't work. Must use description instead, which is tiny text
+          options: [
+            {
+              key: 'Active',
+              value: 'Active'
+            },
+            {
+              key: 'Inactive',
+              value: 'Inactive'
+            }
+          ]
         }
       },
       {
