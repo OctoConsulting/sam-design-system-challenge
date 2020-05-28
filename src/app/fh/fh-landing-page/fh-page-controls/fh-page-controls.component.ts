@@ -17,6 +17,8 @@ export class FhPageControlsComponent implements OnInit {
     totalPages: 10
   };
 
+  @Input() sortBy: FHSort = FHSort.NAME;
+
   @Output() pageChange = new EventEmitter<any>();
 
   @Output() sortChange = new EventEmitter<FHSort>();
@@ -28,7 +30,7 @@ export class FhPageControlsComponent implements OnInit {
     {
       key: 'sortBy',
       type: 'select',
-      defaultValue: FHSort.NAME,
+      defaultValue: this.sortBy,
       templateOptions: {
         label: 'Sort By',
         required: true,

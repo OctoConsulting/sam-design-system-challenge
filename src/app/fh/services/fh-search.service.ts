@@ -43,7 +43,7 @@ export class FhSearchService {
       this._searchResults.orglist = this.formatSearchResults(this._searchResults.orglist);
       this._searchResults.orglist
       this.searchResultSubject.next({...this._searchResults});
-    })
+    });
   }
 
   editOrg(org: Org) {
