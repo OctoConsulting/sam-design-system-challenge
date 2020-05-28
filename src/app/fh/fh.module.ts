@@ -2,6 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FhLandingPageComponent } from './fh-landing-page/fh-landing-page.component';
 import { Routes, RouterModule } from '@angular/router';
+import { FhPageControlsComponent } from './fh-landing-page/fh-page-controls/fh-page-controls.component';
+import { FhResultCardComponent } from './fh-landing-page/fh-result-card/fh-result-card.component';
+import { FhFiltersComponent } from './fh-landing-page/fh-filters/fh-filters.component';
+import { FhNavHeaderComponent } from './fh-landing-page/fh-nav-header/fh-nav-header.component';
+import { FhSubHeaderComponent } from './fh-landing-page/fh-sub-header/fh-sub-header.component';
+import { FhEditModalComponent } from './fh-landing-page/fh-edit-modal/fh-edit-modal.component';
 
 const routes: Routes = [
   {
@@ -12,7 +18,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    FhLandingPageComponent
+    FhLandingPageComponent,
+    FhPageControlsComponent,
+    FhResultCardComponent,
+    FhFiltersComponent,
+    FhNavHeaderComponent,
+    FhSubHeaderComponent,
+    FhEditModalComponent
   ],
   imports: [
     CommonModule,
