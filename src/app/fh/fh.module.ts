@@ -12,6 +12,7 @@ import { PaginationModule } from '@gsa-sam/components';
 import { SdsFormlyModule } from '@gsa-sam/sam-formly';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
+import { SdsActionsMenuModule } from '@gsa-sam/layouts';
 
 const routes: Routes = [
   {
@@ -37,7 +38,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormlyModule.forRoot(),
     SdsFormlyModule,
-    PaginationModule
+    PaginationModule,
+    SdsActionsMenuModule
   ]
 })
 export class FhModule { }
