@@ -28,7 +28,6 @@ export class FhEditModalComponent implements OnInit {
     {
       key: 'fhorgname',
       type: 'input',
-      defaultValue: this.data.fhorgname,
       templateOptions: {
         label: 'Name',
         required: true
@@ -45,7 +44,6 @@ export class FhEditModalComponent implements OnInit {
     {
       key: 'agencycode',
       type: 'input',
-      defaultValue: this.data.agencycode,
       templateOptions: {
         label: 'Agency Code (L2)',
         required: true
@@ -54,7 +52,6 @@ export class FhEditModalComponent implements OnInit {
     {
       key: 'l3Code',
       type: 'input',
-      defaultValue: '',
       templateOptions: {
         label: 'Office Code (L3)',
         required: true
