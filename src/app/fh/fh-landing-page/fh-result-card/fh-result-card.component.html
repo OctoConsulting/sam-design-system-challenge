@@ -1,4 +1,4 @@
-<div class="sds-result-item sds-results-child">
+<div>
 
   <!-- Item Heading -->
   <div class="grid-row grid-gap">
@@ -8,7 +8,7 @@
         <span class="height-4">
           <span class="float-left margin-right-1">
           </span>
-          <span class="sds-results-child--title">
+          <span class="sds-card__header sds-card__header--left">
             <a class="usa-link" [routerLink]="getOrgLink(org?.fhorgid)">{{ org?.fhorgname }}</a></span>
         </span>
       </h3>
@@ -20,7 +20,7 @@
   </div>
 
   <!-- Item Data -->
-  <div class="grid-row grid-gap">
+  <div class="sds-card__content grid-row grid-gap">
     <!-- 1st column -->
     <div class="grid-col-12 tablet:grid-col-6">
       <!-- DUNS -->
