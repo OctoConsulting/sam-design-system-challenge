@@ -51,7 +51,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
  
 ![existing landing page](imgs/edit_modal_mockup.png) 
  
- We integrated several components Sam Design System library, and integrated several presentation components from [SAM Styles](https://federalist-0ad5a602-ca98-4a7e-8d6e-d9ece7bc4cf8.app.cloud.gov/site/gsa/sam-styles/index.html).
+ We integrated several components Sam Design System library, and integrated several presentation components from [SAM Styles](https://cg-fa19003e-5296-4960-ac2e-caccfeb620ac.app.cloud.gov/site/gsa/sam-design-system/).
 
 ## Issues Encountered
 
