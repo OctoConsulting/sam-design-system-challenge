@@ -19,7 +19,11 @@ export class FhSearchService {
 
   private searchResultSubject = new Subject<FHSearch>();
 
-  private currentSearchParams: any;
+  // Search parameters - by default pull 25 results at a time
+  private currentSearchParams: any = {
+    limit: 25,
+    offset: 0
+  }
 
   constructor(
     private fhApiService: FhApiService
@@ -31,7 +35,6 @@ export class FhSearchService {
 
   search(queryParams?: any) {
     this.currentSearchParams = this.currentSearchParams ? {...this.currentSearchParams, ...queryParams} : queryParams;
-
     this.fhApiService.getOrgs(queryParams).toPromise().then((response) => {
       this._searchResults = response;
       this._searchResults.orglist = this.replaceResultsWithEditedVersions(this._searchResults.orglist);
