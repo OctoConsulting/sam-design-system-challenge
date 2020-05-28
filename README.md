@@ -17,7 +17,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 ## Project Features
 
 * A filter toolbar on the left side of the page
-  * Toolbar uses conditional filtering to show/hide filters which aren't applicable. The AAC Code is only visible if
+  * Toolbar uses conditional filtering to show/hide filters which aren't applicable. The Agency Code filter is only visible if Sub-Tier is selected as a filter. The AAC code filter is only visible if Office is also selected.
   * Filters are added to the browser history so that users can user the forward and back buttons of the browser to move back and forward between pages
   * Filters and pagination can be deep linked and bookmarked (/fh?offset=3&fhorgname=Parks)
 
@@ -42,6 +42,14 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 ### Beta.Sam.Gov FH Landing Page
 
 ![existing landing page](imgs/beta_sam_fh_landing_page.png) 
+
+### Landing Page Mockup
+ 
+![existing landing page](imgs/landing_mockup.png)
+
+### Edit Modal Mockup
+ 
+![existing landing page](imgs/edit_modal_mockup.png) 
  
  We integrated several components Sam Design System library, and integrated several presentation components from ![SAM Styles)[https://federalist-0ad5a602-ca98-4a7e-8d6e-d9ece7bc4cf8.app.cloud.gov/site/gsa/sam-styles/index.html).
 
