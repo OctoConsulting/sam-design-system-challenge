@@ -1,0 +1,19 @@
+.page-controls {
+  display: inline-flex;
+  width: 100%;
+  .pagination-box {
+    width: 50%;
+    margin-left: 2%;
+    display: inline-flex;
+    flex-direction: column-reverse;
+  }
+  .sort-box {
+    width: 50%;
+    margin-right: 2%;
+    display: inline-flex;
+    flex-direction: row-reverse;
+    formly-form {
+      width:40%;
+    }
+  }
+}
