@@ -2,7 +2,7 @@
 <div class="grid-container grid-row margin-top-4">
   <div class="grid-col-3">
     <div class="margin-bottom-4">
-      <app-fh-nav-header></app-fh-nav-header>
+      <app-fh-nav-header [userOrg]="{}" (editClicked)="onEditOrg({})"></app-fh-nav-header>
     </div>
     <app-fh-filters (filterChange)="onFilterChange($event)"></app-fh-filters>
   </div>

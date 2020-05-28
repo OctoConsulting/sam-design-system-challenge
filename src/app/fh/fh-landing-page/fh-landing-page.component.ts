@@ -69,8 +69,8 @@ export class FhLandingPageComponent implements OnInit {
     modalRef.afterClosed().subscribe(editedData => this.onEditSave(editedData));
   }
 
-  onEditSave(data: any) {
-    // onEdit Save
+  onEditSave(data: Org) {
+    this.fhSearchService.editOrg(data);
   }
 
 }
