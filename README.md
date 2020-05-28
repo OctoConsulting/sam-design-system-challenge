@@ -29,7 +29,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 
 * A modal window to allow users to edit organization details.
 
-* This prototype uses live data from ![Public Federal Hierarchy API)[https://open.gsa.gov/api/fh-fouo-api/).
+* This prototype uses live data from [Public Federal Hierarchy API](https://open.gsa.gov/api/fh-fouo-api/).
 
 ![Open GSA API](imgs/open_gsa.PNG)
 
@@ -55,7 +55,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
  
 ![existing landing page](imgs/edit_modal_mockup.png) 
  
- We integrated several components Sam Design System library, and integrated several presentation components from ![SAM Styles)[https://federalist-0ad5a602-ca98-4a7e-8d6e-d9ece7bc4cf8.app.cloud.gov/site/gsa/sam-styles/index.html).
+ We integrated several components Sam Design System library, and integrated several presentation components from [SAM Styles](https://federalist-0ad5a602-ca98-4a7e-8d6e-d9ece7bc4cf8.app.cloud.gov/site/gsa/sam-styles/index.html).
 
 ## Issues Encountered
 
