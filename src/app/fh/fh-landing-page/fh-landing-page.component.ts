@@ -81,9 +81,7 @@ export class FhLandingPageComponent implements OnInit, OnDestroy {
       data: org
     });
 
-    modalRef.afterClosed()
-    .pipe(takeUntil(this.unsub$))
-    .subscribe(editedData => this.fhSearchService.editOrg(editedData));
+    modalRef.afterClosed().subscribe(editedData => this.fhSearchService.editOrg(editedData));
   }
 
   onSortChange($event: FHSort) {
