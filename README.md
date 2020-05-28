@@ -52,8 +52,8 @@ Team Rocket implemented a redesign of the beta.sam.gov Federal Hierarchy landing
 * The Formly multiselect 'templateOptions.label' isn't implemented. We had to use an accordion wrapper instead.
 * The `<sds-filter>` Reset All button doesn't always clear all the inputs. It should empty all text inputs, and uncheck any checked items -- not reset them to the state they were in when the page loaded.
 * The pagination component cannot be set to page size 10. It can only be set to page sizes of 25/50/100.
-* An output event on 'Reset All' clicked for <sds-filter> would be helpful as clients might want different behavior on that click
-* The current <sds-search> throws JS error when attempting to search with empty search text
+* An output event on 'Reset All' clicked for `<sds-filter>` would be helpful as clients might want different behavior on that click
+* The current `<sds-search>` throws JS error when attempting to search with empty search text
 
 ### Major Bugs / Difficulties
 
