@@ -29,11 +29,15 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 
 * A modal window to allow users to edit organization details.
 
+* This prototype uses live data from ![public Federal Hierarchy API)(https://open.gsa.gov/api/fh-fouo-api/)
+
+![Open GSA API](imgs/open_gsa.png)
+
 ## Screenshots
 
 ### New Landing Page
 
-![redesigned landing page](imgs/redesigned_landing_page.png) 
+![redesigned landing page](imgs/redesigned_landing_page.png)
 
 ### New Organization Edit Modal
 
@@ -63,6 +67,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
   * The prototype is using public FOUO API, and it does not support specifying the number of results, so this feature is not working.
 * An output event on 'Reset All' clicked for `<sds-filter>` would be helpful as clients might want different behavior on that click.
 * The current `<sds-search>` throws JS error when attempting to search with empty search text
+* The **formly daterange picker** has options to set a min-max range from the component as a whole, but no options to set more specific range for the inner fromDate and toDate fields. Our use case requires the toDate to only allow dates from tomorrow and later, and we could not implement that with the current functionality.
 
 ### Major Bugs / Difficulties
 
