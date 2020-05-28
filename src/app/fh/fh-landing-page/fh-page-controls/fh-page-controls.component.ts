@@ -34,7 +34,7 @@ export class FhPageControlsComponent implements OnInit {
         required: true,
         options: [
           { label: 'Name', value: FHSort.NAME },
-          { label: 'Organization ID', value: FHSort.ORG_ID}
+          { label: 'Start Date', value: FHSort.START_DATE}
         ]
       }
     }
