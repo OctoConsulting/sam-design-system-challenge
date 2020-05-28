@@ -4,7 +4,8 @@
     <div class="margin-bottom-4">
       <app-fh-nav-header [userOrg]="{}" (editClicked)="onEditOrg({})"></app-fh-nav-header>
     </div>
-    <app-fh-filters (filterChange)="onFilterChange($event)"></app-fh-filters>
+    <app-fh-filters
+      (filterChange)="onFilterChange($event)"></app-fh-filters>
   </div>
   <div class="grid-col-8" *ngIf="!loading; else spinner">
     <app-fh-page-controls 

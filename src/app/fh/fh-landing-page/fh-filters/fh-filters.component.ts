@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ActivatedRoute } from '@angular/router';
@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-fh-filters',
   templateUrl: './fh-filters.component.html'
 })
-export class FhFiltersComponent implements OnInit {
+export class FhFiltersComponent implements OnInit, OnChanges {
 
   @Output()
   filterChange = new EventEmitter<any>();
@@ -23,9 +23,19 @@ export class FhFiltersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const routeParams = this.activatedRoute.snapshot.queryParams;
-    console.log(routeParams['fhorgtype']);
-    this.initializeFilterForm(routeParams);
+    const initialParams = this.activatedRoute.snapshot.queryParams;
+    this.initializeFilterForm(initialParams);
+
+    // Watch for changes to general search
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.model['keyword'] = params['fhorgname'];
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.keyword) {
+      console.log(Object.keys(this.form.controls));
+    }
   }
 
   onFilterChange(newValue) {
@@ -39,7 +49,7 @@ export class FhFiltersComponent implements OnInit {
     }
 
     if (newValue.keyword) {
-      queryParams['keyword'] = newValue.keyword;
+      queryParams['fhorgname'] = newValue.keyword;
     }
 
     this.filterChange.emit(queryParams);
@@ -50,10 +60,9 @@ export class FhFiltersComponent implements OnInit {
       {
         key: 'keyword',
         type: 'input',
-        defaultValue: routeParams['keyword'] ? routeParams['keyword'] : undefined,
+        defaultValue: routeParams['fhorgname'] ? routeParams['fhorgname'] : undefined,
         templateOptions: {
           label: 'Keyword',
-          required: true
         }
       },
       {
@@ -61,7 +70,6 @@ export class FhFiltersComponent implements OnInit {
         type: 'datepicker',
         defaultValue: routeParams['createddatefrom'] ? new Date(routeParams['createddatefrom']) : undefined,
         templateOptions: {
-          required: true,
           label: 'Created After',
           minDate: new Date(2019, 12, 31),
           maxDate: new Date(2030, 1, 1)
@@ -72,13 +80,12 @@ export class FhFiltersComponent implements OnInit {
         type: 'multicheckbox',
         wrappers: ['accordionwrapper'],
         defaultValue: {
-          'Department/Ind. Agency': routeParams['fhorgtype'].indexOf('Department/Ind. Agency') > -1 ? true : false,
-          'Sub-Tier': routeParams['fhorgtype'].indexOf('Sub-Tier') > -1 ? true : false,
-          'Office': routeParams['fhorgtype'].indexOf('Office') > -1 ? true : false,
+          'Department/Ind. Agency': routeParams['fhorgtype'] && routeParams['fhorgtype'].indexOf('Department/Ind. Agency') > -1 ? true : false,
+          'Sub-Tier': routeParams['fhorgtype'] && routeParams['fhorgtype'].indexOf('Sub-Tier') > -1 ? true : false,
+          'Office': routeParams['fhorgtype'] && routeParams['fhorgtype'].indexOf('Office') > -1 ? true : false,
         },
         templateOptions: {
           label: 'Org Type', // Bug: label doesn't work. Must use description instead, which is tiny text
-          required: true,
           options: [
             {
               key: 'Department/Ind. Agency',
@@ -100,7 +107,6 @@ export class FhFiltersComponent implements OnInit {
         type: 'input',
         templateOptions: {
           label: 'Agency Code',
-          required: true
         },
         hideExpression: (model, formState) => {
           const show = model && model.type && model.type['Sub-Tier'];
@@ -112,7 +118,6 @@ export class FhFiltersComponent implements OnInit {
         type: 'input',
         templateOptions: {
           label: 'AAC Code',
-          required: true
         },
         hideExpression: (model, formState) => {
           const show = model && model.type && model.type['Office'];
