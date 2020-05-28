@@ -31,7 +31,7 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 
 * This prototype uses live data from ![public Federal Hierarchy API)(https://open.gsa.gov/api/fh-fouo-api/)
 
-![Open GSA API](imgs/open_gsa.png)
+![Open GSA API](imgs/open_gsa.PNG)
 
 ## Screenshots
 
