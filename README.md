@@ -39,7 +39,7 @@ This prototype uses **live** data from [Public Federal Hierarchy API](https://op
 
 ### New Landing Page
 
-![redesigned landing page](imgs/redesigned_landing_page.png)
+![redesigned landing page](imgs/redesigned_landing_page1.png)
 
 ### New Organization Edit Modal
 
