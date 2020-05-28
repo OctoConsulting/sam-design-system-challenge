@@ -43,7 +43,7 @@ This prototype uses **live** data from [Public Federal Hierarchy API](https://op
 
 ### New Organization Edit Modal
 
-![edit modal](imgs/edit_modal.png)
+![edit modal](imgs/edit_modal1.png)
 
 ### Beta.Sam.Gov FH Landing Page
 
