@@ -77,8 +77,8 @@ export class FhFiltersComponent implements OnInit, OnChanges {
         defaultValue: routeParams['createddatefrom'] ? new Date(routeParams['createddatefrom']) : undefined,
         templateOptions: {
           label: 'Created After',
-          minDate: new Date(2019, 12, 31),
-          maxDate: new Date(2030, 1, 1)
+          minDate: new Date(1940, 12, 31),
+          maxDate: new Date()
         }
       },
       {
