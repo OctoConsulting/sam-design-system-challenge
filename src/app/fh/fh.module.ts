@@ -15,6 +15,7 @@ import { SdsFiltersModule, SdsFormlyModule } from '@gsa-sam/sam-formly';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { SdsActionsMenuModule } from '@gsa-sam/layouts';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
     SdsToolbarModule,
     SdsFiltersModule,
     SdsActionsMenuModule,
-    SdsDialogModule
+    SdsDialogModule,
+    FontAwesomeModule,
   ],
   entryComponents: [
     FhEditModalComponent
