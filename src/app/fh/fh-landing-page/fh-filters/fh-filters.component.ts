@@ -41,7 +41,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
   onFilterChange(newValue) {
     let queryParams = {};
     if (newValue.type) {
-      queryParams['fhorgtype'] = Object.keys(newValue.type).filter(key => newValue.type[key] && newValue.type[key] === true);
+      queryParams['fhorgtype'] = Object.keys(newValue.type).filter(key => newValue.type[key] && newValue.type[key] === true).join(',');
     }
 
     if (newValue.createdAfter) {
