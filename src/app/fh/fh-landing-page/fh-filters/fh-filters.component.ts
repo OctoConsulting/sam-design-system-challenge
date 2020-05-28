@@ -52,6 +52,12 @@ export class FhFiltersComponent implements OnInit, OnChanges {
       queryParams['fhorgname'] = newValue.keyword;
     }
 
+    queryParams = {
+      ...queryParams,
+      agencycode: queryParams['fhorgtype'] && queryParams['fhorgtype'].indexOf('Sub-Tier') > -1 ? newValue.agencyCode : undefined,
+      aacofficecode: queryParams['fhorgtype'] && queryParams['fhorgtype'].indexOf('Office') > -1 ? newValue.aacCode : undefined,
+    };
+
     this.filterChange.emit(queryParams);
   }
 
@@ -105,6 +111,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
       {
         key: 'agencyCode',
         type: 'input',
+        defaultValue: routeParams['agencycode']? routeParams['agencycode'] : undefined,
         templateOptions: {
           label: 'Agency Code',
         },
@@ -116,6 +123,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
       {
         key: 'aacCode',
         type: 'input',
+        defaultValue: routeParams['aacofficecode']? routeParams['aacofficecode'] : undefined,
         templateOptions: {
           label: 'AAC Code',
         },
