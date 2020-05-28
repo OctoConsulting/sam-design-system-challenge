@@ -32,7 +32,7 @@
             <div [ngSwitch]="org?.fhorgtype">
               <div *ngSwitchCase="'Department/Ind. Agency'">
                 <div class="sds-field__name">CGAC:</div>
-                <div class="sds-field__value">{{org?.agencycode}}</div>
+                <div class="sds-field__value">{{org?.cgaclist[0]}}</div>
               </div>
 
               <div *ngSwitchCase="'Sub-Tier'">
