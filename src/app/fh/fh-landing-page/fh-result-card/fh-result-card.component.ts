@@ -31,4 +31,8 @@ export class FhResultCardComponent implements OnInit {
     this.editOrg.emit(event);
   }
 
+  public getOrgLink(orgid: string): string {
+    return './' + orgid;
+  }
+
 }

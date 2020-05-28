@@ -49,6 +49,9 @@ const routes: Routes = [
     SdsActionsMenuModule,
     SdsDialogModule
   ],
+  entryComponents: [
+    FhEditModalComponent
+  ],
   providers: [
     FhSearchService,
   ]
