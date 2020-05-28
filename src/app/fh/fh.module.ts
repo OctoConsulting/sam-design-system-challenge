@@ -53,7 +53,7 @@ const routes: Routes = [
     FhEditModalComponent
   ],
   providers: [
-    FhSearchService,
-  ],
+    FhSearchService
+  ]
 })
 export class FhModule { }
