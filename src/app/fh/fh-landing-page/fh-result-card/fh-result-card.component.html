@@ -9,7 +9,7 @@
           <span class="float-left margin-right-1">
           </span>
           <span class="sds-results-child--title">
-            <a href="">{{ org?.fhorgname }}</a></span>
+            <a class="usa-link" [routerLink]="getOrgLink(org?.fhorgid)">{{ org?.fhorgname }}</a></span>
         </span>
       </h3>
     </div>
@@ -27,7 +27,7 @@
       <div class="grid-row margin-y-1">
         <!-- Tag -->
         <div class="grid-col-auto">
-          <div class="usa-tag sds-tag--info-purple sds-static--tag">ID</div>
+          <div class="usa-tag sds-tag--info-purple sds-static--tag flex-justify-center">ID</div>
         </div>
         <!-- Key/Value Wrapper -->
         <div class="grid-col">
@@ -38,7 +38,7 @@
         </div>
       </div>
       
-      <!-- CAGE -->
+      <!-- TYPE -->
       <div class="grid-row margin-y-1">
         <!-- Tag -->
         <div class="grid-col-auto">
@@ -58,7 +58,7 @@
         </div>
       </div>
 
-      <!-- Date -->
+      <!-- DATE -->
       <div class="grid-row margin-y-1">
         <!-- Tag -->
         <div class="grid-col-auto">
@@ -73,7 +73,7 @@
         <div class="grid-col">
           <div class="sds-field sds-field--small">
             <div class="sds-field__name">Start Date:</div>
-            <div class="sds-field__value">{{org?.effectivestartdate | date: 'longDate'}}</div>
+            <div class="sds-field__value">{{(org?.effectivestartdate | date: 'longDate') || 'N/A' }}</div>
           </div>
         </div>
       </div>
@@ -90,8 +90,8 @@
           <div class="sds-field sds-field--stacked sds-field--small sds-field--featured">
             <div class="sds-field__name">Status</div>
             <div class="sds-field__value">
-              <span class="sds-tag sds-tag--outline">
-                <i class="sds-status sds-status--sm sds-status--green"></i>{{org?.status}}</span>
+              <span class="sds-tag sds-tag--outline flex-justify-center">
+                <i class="sds-status sds-status--sm" [ngClass]="org?.status == 'ACTIVE' ? 'sds-status--green' : 'sds-status--orange'"></i>{{org?.status}}</span>
             </div>
           </div>
         </div>
