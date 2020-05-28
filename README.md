@@ -29,7 +29,9 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 
 * A modal window to allow users to edit organization details.
 
-* This prototype uses live data from ![Public Federal Hierarchy API)[https://open.gsa.gov/api/fh-fouo-api/).
+### Live Data Set
+
+This prototype uses **live** data from [Public Federal Hierarchy API](https://open.gsa.gov/api/fh-fouo-api/).
 
 ![Open GSA API](imgs/open_gsa.PNG)
 
@@ -37,15 +39,15 @@ Team Rocket implemented a redesign of the beta.sam.gov **Federal Hierarchy** T-2
 
 ### New Landing Page
 
-![redesigned landing page](imgs/redesigned_landing_page.png)
+![redesigned landing page](imgs/redesigned_landing_page1.png)
 
 ### New Organization Edit Modal
 
-![edit modal](imgs/edit_modal.png)
+![edit modal](imgs/edit_modal1.png)
 
 ### Beta.Sam.Gov FH Landing Page
 
-![existing landing page](imgs/beta_sam_fh_landing_page.png) 
+![existing landing page](imgs/beta_sam_fh_landing_page.png)
 
 ### Landing Page Mockup
  

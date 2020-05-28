@@ -109,7 +109,7 @@ export class FhFiltersComponent implements OnInit, OnChanges {
         wrappers: ['accordionwrapper'],
         defaultValue: routeParams['fhorgtype'] ? routeParams['fhorgtype'] : undefined,
         templateOptions: {
-          label: 'Org Type', // Bug: label doesn't work. Must use description instead, which is tiny text
+          label: 'Organization Type', // Bug: label doesn't work. Must use description instead, which is tiny text
           options: [
             {
               key: 'Department/Ind. Agency',
