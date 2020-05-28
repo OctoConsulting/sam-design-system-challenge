@@ -1,4 +1,4 @@
 export enum FHSort {
-  ORG_ID = 'agencycode',
+  START_DATE = 'effectivestartdate',
   NAME = 'fhorgname'
 }

@@ -84,8 +84,8 @@ export class FhSearchService {
       case FHSort.NAME:
         orglist = orglist.sort((orgA, orgB) => orgA.fhorgname.localeCompare(orgB.fhorgname));
         break;
-      case FHSort.ORG_ID:
-        orglist = orglist.sort((orgA, orgB) => orgA.fhorgid - orgB.fhorgid);
+      case FHSort.START_DATE:
+        orglist = orglist.sort((orgA, orgB) => new Date(orgA.effectivestartdate).getTime() - new Date(orgB.effectivestartdate).getTime());
         break;
     }
 
