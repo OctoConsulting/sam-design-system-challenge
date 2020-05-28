@@ -54,9 +54,6 @@ const routes: Routes = [
   ],
   providers: [
     FhSearchService,
-  ],
-  entryComponents: [
-    FhEditModalComponent,
   ]
 })
 export class FhModule { }
