@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { FHSearch } from '../interface/fh-search';
 import { FhSearchService } from '../services/fh-search.service';
 import { PaginationModel } from '@gsa-sam/components/lib/pagination/model/paginationModel';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, debounceTime } from 'rxjs/operators';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SdsDialogService } from '@gsa-sam/components';
 import { FhEditModalComponent } from './fh-edit-modal/fh-edit-modal.component';
@@ -45,7 +45,9 @@ export class FhLandingPageComponent implements OnInit, OnDestroy {
     );
 
     this.activatedRoute.queryParams
-    .pipe(takeUntil(this.unsub$))
+    .pipe(
+      takeUntil(this.unsub$),
+      debounceTime(600))
     .subscribe((params) => {
       this.loading = true;
       this.fhSearchService.search(params);
