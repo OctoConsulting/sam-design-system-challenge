@@ -76,6 +76,6 @@ As a possible solution, we propose that the history feature should be decoupled 
 
 ### Disabling Browser Suggestions for input
 
-We created a directive (in the common folder), which will disable the browser suggestions for inputs. These input can obscure autocomplete suggestions and are enabled by default. The screenshot below demonstrates how the browser suggestions overlay autocomplete suggestions.
+We created a directive (in the common folder), which will disable the browser suggestions for inputs. These suggestions can obscure our custom autocomplete suggestions and are enabled by default. The screenshot below demonstrates how the browser suggestions overlay autocomplete suggestions.
 
 ![disable suggestions](imgs/disable_suggestions.png)
