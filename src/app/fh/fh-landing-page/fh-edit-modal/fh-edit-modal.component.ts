@@ -89,7 +89,7 @@ export class FhEditModalComponent implements OnInit {
     if (this.form.valid) {
       const formattedModel = {
         ...this.model,
-        effectivestartdate: this.model.dateRange.fromDate,
+        createddate: this.model.dateRange.fromDate,
         enddate: this.model.dateRange.toDate,
       }
       const editedOrg = {...this.data, ...formattedModel};
@@ -100,7 +100,7 @@ export class FhEditModalComponent implements OnInit {
   private parseData(org: Org): any {
     if (org) {
       this.model.fhorgname = org['fhorgname'];
-      this.model.dateRange.fromDate = new Date(org['effectivestartdate']);
+      this.model.dateRange.fromDate = new Date(org['createddate']);
       this.model.agencycode = org['agencycode'];
       this.model.aacofficecode = org['aacofficecode'];
     }
