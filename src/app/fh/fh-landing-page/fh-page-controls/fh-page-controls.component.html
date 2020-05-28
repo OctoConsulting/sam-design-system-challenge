@@ -1,1 +1,12 @@
-<p>fh-page-controls works!</p>
+<div class="page-controls">
+  <div class="pagination-box">
+    <sds-pagination [paginationConfiguration]="top" [(page)]="page" (pageChange)="onPageChange($event)"></sds-pagination>
+  </div>
+  
+  <div class="sort-box">
+    <formly-form
+      [form]="sortFieldFormControl"
+      [fields]="sortField">
+    </formly-form>
+  </div>
+</div>
