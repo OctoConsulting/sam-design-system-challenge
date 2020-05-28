@@ -26,7 +26,7 @@ export class FhSearchService {
     this.fhApiService.getOrgs(queryParams).toPromise().then((response) => {
       this._searchResult = response;
       this.searchResultSubject.next(this._searchResult);
-    })
+    });
   }
 
 }

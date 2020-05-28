@@ -4,6 +4,8 @@ import { FHSearch } from '../interface/fh-search';
 import { FhSearchService } from '../services/fh-search.service';
 import { PaginationModel } from '@gsa-sam/components/lib/pagination/model/paginationModel';
 import { tap } from 'rxjs/operators';
+import { SdsDialogService } from '@gsa-sam/components';
+import { FhEditModalComponent } from './fh-edit-modal/fh-edit-modal.component';
 
 @Component({
   selector: 'app-fh-landing-page',
@@ -20,6 +22,7 @@ export class FhLandingPageComponent implements OnInit {
   };
 
   constructor(
+    public modal: SdsDialogService,
     private fhSearchService: FhSearchService
   ) { }
 
@@ -37,6 +40,18 @@ export class FhLandingPageComponent implements OnInit {
 
   onPageChange($event) {
     // todo - Change page
+  }
+
+  onEditOrg(org: any) {
+    const modalRef = this.modal.open(FhEditModalComponent, {
+      width: 'medium',
+      data: org
+    });
+    modalRef.afterClosed().subscribe(editedData => this.onEditSave(editedData));
+  }
+
+  onEditSave(data: any) {
+    // onEdit Save
   }
 
 }

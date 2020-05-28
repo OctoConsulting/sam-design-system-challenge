@@ -8,7 +8,7 @@ import { FhFiltersComponent } from './fh-landing-page/fh-filters/fh-filters.comp
 import { FhNavHeaderComponent } from './fh-landing-page/fh-nav-header/fh-nav-header.component';
 import { FhSubHeaderComponent } from './fh-landing-page/fh-sub-header/fh-sub-header.component';
 import { FhEditModalComponent } from './fh-landing-page/fh-edit-modal/fh-edit-modal.component';
-import { PaginationModule, } from '@gsa-sam/components';
+import { PaginationModule, SdsDialogModule, } from '@gsa-sam/components';
 import { FhSearchService } from './services/fh-search.service';
 import { SdsAccordionModule, SdsToolbarModule, SdsSearchResultListModule, SdsSearchModule  } from '@gsa-sam/components';
 import { SdsFiltersModule, SdsFormlyModule } from '@gsa-sam/sam-formly';
@@ -21,7 +21,7 @@ const routes: Routes = [
     path: '',
     component: FhLandingPageComponent
   }
-]
+];
 
 @NgModule({
   declarations: [
@@ -46,7 +46,8 @@ const routes: Routes = [
     SdsAccordionModule,
     SdsToolbarModule,
     SdsFiltersModule,
-    SdsActionsMenuModule
+    SdsActionsMenuModule,
+    SdsDialogModule
   ],
   providers: [
     FhSearchService,
