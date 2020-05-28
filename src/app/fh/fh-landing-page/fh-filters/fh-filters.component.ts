@@ -23,19 +23,24 @@ export class FhFiltersComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const routeParams = this.activatedRoute.snapshot.params;
+    const routeParams = this.activatedRoute.snapshot.queryParams;
+    console.log(routeParams['fhorgtype']);
     this.initializeFilterForm(routeParams);
   }
 
   onFilterChange(newValue) {
-    let selectedOrgTypes = [];
+    let queryParams = {};
     if (newValue.type) {
-      selectedOrgTypes = Object.keys(newValue.type).filter(key => newValue.type[key] && newValue.type[key] === true);
+      queryParams['fhorgtype'] = Object.keys(newValue.type).filter(key => newValue.type[key] && newValue.type[key] === true);
     }
 
-    const queryParams = {
-      fhorgtype: selectedOrgTypes
-    };
+    if (newValue.createdAfter) {
+      queryParams['createddatefrom'] = new Date(newValue.createdAfter).toISOString().split('T')[0];
+    }
+
+    if (newValue.keyword) {
+      queryParams['keyword'] = newValue.keyword;
+    }
 
     this.filterChange.emit(queryParams);
   }
@@ -54,7 +59,7 @@ export class FhFiltersComponent implements OnInit {
       {
         key: 'createdAfter',
         type: 'datepicker',
-        defaultValue: routeParams['createdAfter'] ? routeParams['createdAfter'] : undefined,
+        defaultValue: routeParams['createddatefrom'] ? new Date(routeParams['createddatefrom']) : undefined,
         templateOptions: {
           required: true,
           label: 'Created After',
@@ -67,9 +72,9 @@ export class FhFiltersComponent implements OnInit {
         type: 'multicheckbox',
         wrappers: ['accordionwrapper'],
         defaultValue: {
-          'Department/Ind. Agency': routeParams['Department/Ind. Agency'] ? true : false,
-          'Sub-Tier': routeParams['Sub-Tier'] ? true : false,
-          'Office': routeParams['Office'] ? true : false,
+          'Department/Ind. Agency': routeParams['fhorgtype'].indexOf('Department/Ind. Agency') > -1 ? true : false,
+          'Sub-Tier': routeParams['fhorgtype'].indexOf('Sub-Tier') > -1 ? true : false,
+          'Office': routeParams['fhorgtype'].indexOf('Office') > -1 ? true : false,
         },
         templateOptions: {
           label: 'Org Type', // Bug: label doesn't work. Must use description instead, which is tiny text
