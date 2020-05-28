@@ -65,7 +65,7 @@ export class FhFiltersComponent {
         required: true
       },
       hideExpression: (model, formState) => {
-        const show = model && model.level && model.level[2];
+        const show = model && model.type && model.type['Sub-Tier'];
         return !show;
       },
     },
@@ -77,7 +77,7 @@ export class FhFiltersComponent {
         required: true
       },
       hideExpression: (model, formState) => {
-        const show = model && model.level && model.level[3];
+        const show = model && model.type && model.type['Office'];
         return !show;
       },
     },
