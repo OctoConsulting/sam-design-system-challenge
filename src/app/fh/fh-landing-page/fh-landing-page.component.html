@@ -11,7 +11,7 @@
     <sds-search-result-list [model]="searchResults.orglist">
       <ng-template #resultContent let-org>
         <!--Pass in org here as input to card-->
-        <app-fh-result-card></app-fh-result-card>
+        <app-fh-result-card [org]="org"></app-fh-result-card>
       </ng-template>
     </sds-search-result-list>
   </div>
