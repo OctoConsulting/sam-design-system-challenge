@@ -1,0 +1,13 @@
+<div class="grid-row grid-row-auto grid-gap">
+  <div class="grid-col-9 pagination-box">
+    <sds-pagination [paginationConfiguration]="top" [(page)]="page" (pageChange)="onPageChange($event)"></sds-pagination>
+  </div>
+  
+  <div class="grid-col-3">
+    <formly-form
+      [form]="sortFieldFormControl"
+      [fields]="sortField"
+    >
+    </formly-form>
+  </div>
+</div>

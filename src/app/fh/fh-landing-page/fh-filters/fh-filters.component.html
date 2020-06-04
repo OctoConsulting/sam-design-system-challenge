@@ -1,0 +1,14 @@
+<sds-toolbar [expanded]="true" *ngIf="!!sdsInput">
+  <sds-accordion multi="true">
+    <sds-accordion-item [expanded]="true">
+      <sds-accordion-item-header>Filter By</sds-accordion-item-header>
+      <sds-filters
+        disableSuggestions
+        [form]="form"
+        [fields]="sdsInput"
+        [model]="model"
+        [isHistoryEnable]="false"
+        (filterChange)="onFilterChange($event)"></sds-filters>
+    </sds-accordion-item>
+  </sds-accordion>
+</sds-toolbar>

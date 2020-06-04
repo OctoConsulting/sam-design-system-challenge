@@ -1,0 +1,34 @@
+<app-fh-sub-header (searchEvent)="search($event)"></app-fh-sub-header>
+<div class="grid-container">
+  <div class="sds-page condensed">
+    <div class="grid-row grid-gap-4">
+      <div class="grid-col-12 tablet:grid-col-auto">
+        <div class="margin-bottom-4 grid-col-fill">
+          <app-fh-nav-header [userOrg]="{}" (editClicked)="onEditOrg({})"></app-fh-nav-header>
+        </div>
+        <app-fh-filters class="grid-col-fill" (filterChange)="onFilterChange($event)">
+        </app-fh-filters>
+      </div>
+
+      <div class="grid-col-12 tablet:grid-col-fill">
+        <div *ngIf="!loading; else spinner">
+          <app-fh-page-controls [page]="paginationModel" (pageChange)="onPageChange($event)"
+          (sortChange)="onSortChange($event)">
+          </app-fh-page-controls>
+          <sds-search-result-list [model]="searchResults?.orglist">
+            <ng-template #resultContent let-org>
+              <app-fh-result-card [org]="org" (editOrg)="onEditOrg($event)">
+              </app-fh-result-card>
+            </ng-template>
+          </sds-search-result-list>
+        </div>
+        <ng-template #spinner>
+          <div class="searching margin-top-9">
+            <fa-icon [icon]="['fas', 'sync']" [spin]="true"></fa-icon>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<div>

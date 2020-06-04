@@ -1,0 +1,103 @@
+<div>
+
+  <!-- Item Heading -->
+  <div class="grid-row grid-gap">
+    <div class="grid-col">
+      <h2 class="font-sans-xs margin-bottom-neg-2px">
+        <!-- title -->
+        <span class="height-4">
+          <span class="float-left margin-right-1">
+          </span>
+          <span class="sds-card__header sds-card__header--left">
+            <a class="usa-link" [routerLink]="getOrgLink(org?.fhorgid)">{{ org?.fhorgname }}</a></span>
+        </span>
+      </h2>
+    </div>
+    <div>
+      <sds-actions-menu
+      class="margin-bottom-neg-2px"
+      size="sm" [model]="actionMenuModel" (clicks)="onActionMenuClick(org)"></sds-actions-menu>
+    </div>
+  </div>
+
+  <!-- Item Data -->
+  <div class="sds-card__content grid-row grid-gap">
+    <!-- 1st column -->
+    <div class="grid-col-12 tablet:grid-col-6">
+      <!-- DUNS -->
+      <div class="grid-row margin-y-1">
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col">
+          <div class="sds-field sds-field--small">
+            <div [ngSwitch]="org?.fhorgtype">
+              <div *ngSwitchCase="'Department/Ind. Agency'">
+                <div class="sds-field__name">CGAC:</div>
+                <div class="sds-field__value">{{org?.cgaclist[0].cgac}}</div>
+              </div>
+
+              <div *ngSwitchCase="'Sub-Tier'">
+                <div class="sds-field__name">Agency Code:</div>
+                <div class="sds-field__value">{{org?.agencycode}}</div>
+              </div>
+
+              <div *ngSwitchCase="'OFFICE'">
+                <div class="sds-field__name">AAC:</div>
+                <div class="sds-field__value">{{org?.aacofficecode}}</div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+      <!-- TYPE -->
+      <div class="grid-row margin-y-1">
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col">
+          <div class="sds-field sds-field--small">
+            <div class="sds-field__name">Organization Type:</div>
+            <div class="sds-field__value">{{org?.fhorgtype}}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DATE -->
+      <div class="grid-row margin-y-1">
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col">
+          <div class="sds-field sds-field--small">
+            <div class="sds-field__name">Start Date:</div>
+            <div class="sds-field__value">{{(org?.createddate | date: 'longDate') || 'N/A' }}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- 2nd column -->
+    <div class="grid-col-12 tablet:grid-col-6">
+      <!-- Horizontal Config -->
+      <div class="grid-row grid-gap-05">
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col-6 tablet:grid-col-fill">
+          <div class="sds-field sds-field--stacked sds-field--small sds-field--featured">
+            <div class="sds-field__name">Status</div>
+            <div class="sds-field__value">
+              <span class="sds-tag sds-tag--outline flex-justify-center">
+                <i class="sds-status sds-status--sm" [ngClass]="org?.status == 'ACTIVE' ? 'sds-status--green' : 'sds-status--orange'"></i>{{org?.status}}</span>
+            </div>
+          </div>
+        </div>
+        <!-- Key/Value Wrapper -->
+        <div class="grid-col-6 tablet:grid-col-fill">
+          <div class="sds-field sds-field--stacked sds-field--small sds-field--featured">
+            <div class="sds-field__name">Expiration Date</div>
+            <div class="sds-field__value">
+              <span class="sds-tag sds-tag--outline flex-justify-center">Feb 20, 2022</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
